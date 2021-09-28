@@ -1,8 +1,17 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { COLORS, FONTS } from "../constants/theme";
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
 
 const TabIcon = ({ focused, icon, iconStyle, label, isTrade }) => {
+  let [fontsLoaded, error] = useFonts({
+    "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
   if (isTrade) {
     return (
       <View
@@ -46,6 +55,7 @@ const TabIcon = ({ focused, icon, iconStyle, label, isTrade }) => {
           style={{
             color: focused ? COLORS.white : COLORS.secondary,
             ...FONTS.h4,
+            fontFamily: "Roboto-Regular",
           }}
         >
           {label}
