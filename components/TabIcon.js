@@ -7,6 +7,8 @@ import { useFonts } from "expo-font";
 const TabIcon = ({ focused, icon, iconStyle, label, isTrade }) => {
   let [fontsLoaded, error] = useFonts({
     "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Black": require("../assets/fonts/Roboto-Black.ttf"),
+    "Roboto-Bold": require("../assets/fonts/Roboto-Bold.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -55,7 +57,6 @@ const TabIcon = ({ focused, icon, iconStyle, label, isTrade }) => {
           style={{
             color: focused ? COLORS.white : COLORS.secondary,
             ...FONTS.h4,
-            fontFamily: "Roboto-Regular",
           }}
         >
           {label}
